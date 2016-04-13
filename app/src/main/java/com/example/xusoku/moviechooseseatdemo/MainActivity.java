@@ -17,8 +17,8 @@ import view.SSThumView;
 import view.SSView;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int ROW = 8;
-    private static final int EACH_ROW_COUNT = 12;
+    private static final int ROW = 20;
+    private static final int EACH_ROW_COUNT = 22;
     private SSView mSSView;
     private SSThumView mSSThumView;
     private ArrayList<SeatInfo> list_seatInfos = new ArrayList<SeatInfo>();
@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
         mSSView = (SSView) this.findViewById(R.id.mSSView);
         mSSView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);//为了显示虚线
         mSSThumView = (SSThumView) this.findViewById(R.id.ss_ssthumview);
-//		mSSView.setXOffset(20);
         setSeatInfo();
         mSSView.init(EACH_ROW_COUNT, ROW, list_seatInfos, list_seat_conditions, mSSThumView, 5);
+//        SSView.setIsPerView(mSSView,true);//显示缩略图
         mSSView.setOnSeatClickListener(new OnSeatClickListener() {
 
             @Override
@@ -65,11 +65,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
 
-            @Override
-            public void a() {
-                // TODO Auto-generated method stub
-
-            }
         });
     }
 

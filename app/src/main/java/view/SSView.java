@@ -97,6 +97,8 @@ public class SSView extends View {
 	/** 整个view的宽度 */
 	private int viewWidth = 0;
 	/** 整个view的高度 */
+	private int heightSize = 0;
+	/** 初始化view的高度 */
 	private int viewHeight = 0;
 	/** 能否移动 */
 	private boolean isMove = true;
@@ -280,7 +282,12 @@ public class SSView extends View {
 		int heightSize = MeasureSpec.getSize(heightMeasureSpec);
 		viewWidth=this.mLeft + this.ss_seat_current_width * this.totalCountEachRow + this.mRight;
 
-		Log.e("viewWidth","viewWidth="+viewWidth+"   widthSize="+widthSize);
+		this.heightSize=heightSize;
+//		this.viewHeight = this.ss_seat_current_height * this.rows+mTop;
+//
+////		Log.e("viewWidth","viewWidth="+viewWidth+"   widthSize="+widthSize);
+//		Log.e("viewHeight","viewHeight="+viewHeight+"   heightSize="+heightSize);
+
 
 		if(viewWidth>widthSize) {
 			offsetX = -viewWidth / 2f + widthSize / 2;
@@ -348,8 +355,12 @@ public class SSView extends View {
 		this.viewWidth = this.mLeft + this.ss_seat_current_width * this.totalCountEachRow + this.mRight;
 		this.viewHeight = this.ss_seat_current_height * this.rows+mTop;
 
-		Log.e("viewWidth","viewWidth="+viewWidth+"   viewHeight="+viewHeight);
+		Log.e("viewWidth====","viewWidth="+viewWidth+"   viewHeight="+viewHeight);
 
+		if(viewHeight<=heightSize){
+			this.offsetY = 0.0f;
+			this.q = 0;
+		}
 
 		//居中线的画笔
 		Paint paint = new Paint();
@@ -387,11 +398,11 @@ public class SSView extends View {
 
 
 			for (int i3 = 0; i3 < this.mListSeatInfos.get(i2).getSeatList()
-					.size(); i3++) {// 2344
-				// goto5 - 2344
+					.size(); i3++) {
+
 				Seat localSeat = this.mListSeatInfos.get(i2).getSeat(i3);
-				switch (((Integer) localArrayList.get(i3)).intValue()) { // 2373
-					case 0: // 2401 - 走道
+				switch (((Integer) localArrayList.get(i3)).intValue()) {
+					case 0: //  - 走道
 						localPaint2.setColor(0);
 						drawSeat(i3, i2, null, paramCanvas, this.mCanvas, localPaint2);
 						localPaint2.setColor(Color.WHITE);
@@ -404,7 +415,7 @@ public class SSView extends View {
 						drawSeat(i3, i2, this.mBitMapSeatLock, paramCanvas,
 								this.mCanvas, localPaint2);
 						break;
-					case 3: // 2500-一已点击的状态
+					case 3: // 一已点击的状态
 						drawSeat(i3, i2, this.mBitMapSeatChecked, paramCanvas,
 								this.mCanvas, localPaint2);
 						break;
@@ -412,7 +423,7 @@ public class SSView extends View {
 						break;
 				}
 			}
-			// cond_d - 2538
+
 		}
 
 		// 画排数
@@ -446,7 +457,7 @@ public class SSView extends View {
 		}
 
 		if (this.mSSThumView != null) {
-			this.mSSThumView.a(mBitMapThumView);
+			this.mSSThumView.setBitmap(mBitMapThumView);
 			this.mSSThumView.invalidate();
 		}
 
@@ -498,7 +509,7 @@ public class SSView extends View {
 	 * @param mSsView
 	 * @return
 	 */
-	public static int t(SSView mSsView) {
+	public static int getq(SSView mSsView) {
 		return mSsView.q;
 	}
 
@@ -518,7 +529,7 @@ public class SSView extends View {
 	 * @param mSsView
 	 * @return
 	 */
-	public static int r(SSView mSsView) {
+	public static int getp(SSView mSsView) {
 		return mSsView.p;
 	}
 

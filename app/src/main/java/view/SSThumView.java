@@ -12,14 +12,14 @@ import android.view.View;
 public class SSThumView extends View
 {
   private Bitmap bitmap = null;
-  private Paint b = null;
+  private Paint paint = null;
 
   public SSThumView(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
   }
 
-  public void a(Bitmap paramBitmap)
+  public void setBitmap(Bitmap paramBitmap)
   {
     this.bitmap = paramBitmap;
   }
@@ -29,6 +29,6 @@ public class SSThumView extends View
     super.onDraw(paramCanvas);
 //    Log.i("TAG", "onDraw()...");
     if (this.bitmap != null)
-      paramCanvas.drawBitmap(this.bitmap, 0.0F, 0.0F, this.b);
+      paramCanvas.drawBitmap(this.bitmap, 0.0F, 0.0F, this.paint);
   }
 }

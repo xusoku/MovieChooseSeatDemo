@@ -62,13 +62,13 @@ class GestureListener extends GestureDetector.SimpleOnGestureListener {
 			//修改座位距离排数的横向距离
 			SSView.k(mSsView, k);
 //			Log.i("TAG", SSView.r(mSsView)+"");
-			if (SSView.r(mSsView) < 0) {
+			if (SSView.getp(mSsView) < 0) {
 				//滑到最左
 				SSView.i(mSsView, 0);
 				SSView.setoffsetX(mSsView, 0.0F);
 			}
 
-			if(SSView.r(mSsView) + mSsView.getMeasuredWidth() > SSView.getViewWidth(mSsView)){
+			if(SSView.getp(mSsView) + mSsView.getMeasuredWidth() > SSView.getViewWidth(mSsView)){
 				//滑到最右
 				SSView.i(mSsView, SSView.getViewWidth(mSsView) - mSsView.getMeasuredWidth());
 				SSView.setoffsetX(mSsView, (float) (mSsView.getMeasuredWidth() - SSView.getViewWidth(mSsView)));
@@ -85,13 +85,13 @@ class GestureListener extends GestureDetector.SimpleOnGestureListener {
 			SSView.l(mSsView, j);
 //			Log.i("TAG", SSView.t(mSsView)+"");
 
-			if (SSView.t(mSsView) < 0){
+			if (SSView.getq(mSsView) < 0){
 				//滑到顶
 				SSView.j(mSsView, 0);
 				SSView.setOffsetY(mSsView, 0.0F);
 			}
 
-			if (SSView.t(mSsView) + mSsView.getMeasuredHeight() > SSView
+			if (SSView.getq(mSsView) + mSsView.getMeasuredHeight() > SSView
 					.getViewHeight(mSsView)){
 				//滑到底
 				SSView.j(mSsView, SSView.getViewHeight(mSsView) - mSsView.getMeasuredHeight());
