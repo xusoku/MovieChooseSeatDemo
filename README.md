@@ -1,2 +1,2 @@
 # MovieChooseSeatDemo
-选坐购票
+选座购票
