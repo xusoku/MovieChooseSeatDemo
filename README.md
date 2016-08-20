@@ -1,3 +1,3 @@
 # MovieChooseSeatDemo
 ======
-选座购票
+选座 购票
